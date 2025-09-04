@@ -38,11 +38,11 @@ const SearchPage = () => {
     recipe.name.toLowerCase().includes(lowerCaseSearchQuery)
   );
 
-  const recipesByIngredient = allRecipes.filter(recipe =>
+  const recipesByIngredient = lowerCaseSearchQuery.length > 2 ? allRecipes.filter(recipe =>
     recipe.ingredients.some(ingredient =>
-      ingredient.toLowerCase() === lowerCaseSearchQuery
+      ingredient.toLowerCase().includes(lowerCaseSearchQuery)
     )
-  );
+  ) : [];
 
   // Remove duplicates from recipesByIngredient that are already in recipesByName
   const uniqueRecipesByIngredient = recipesByIngredient.filter(ingredientRecipe =>
