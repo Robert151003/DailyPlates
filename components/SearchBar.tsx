@@ -15,7 +15,7 @@ const SearchBar = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [isTyping, setIsTyping] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [suggestions, setSuggestions] = useState<[string, { name: string; imageUrl: string }][]>([]);
+  const [suggestions, setSuggestions] = useState<[string, { name: string; imageUrl: string; ingredients: string[] }][]>([]);
   const dropdownListRef = useRef<HTMLUListElement>(null);
   const router = useRouter();
 

@@ -53,10 +53,7 @@ const Page = () => {
       <Filter />
       <div
         id='container'
-        className={`grid grid-cols-3 gap-4`}
-        style={{
-          gridTemplateColumns: 'repeat(3, 200px)',
-        }}
+        className={`grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-6`}
       >
         {filteredAndCategorizedDinnerRecipes.length > 0 ? (
           filteredAndCategorizedDinnerRecipes.map(([key, recipe]) => (

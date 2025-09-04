@@ -6,8 +6,16 @@ import { pageList } from '@/constants';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { Breadcrumb } from '@/components/breadcrumb';
 import { useTheme } from 'next-themes';
-import Image from 'next/image';
 import { useFilter } from '@/components/FilterContext';
+import SubSection from '@/components/SubSection';
+
+interface Recipe {
+  name: string;
+  imageUrl: string;
+  isVegetarian: boolean;
+  isVegan: boolean;
+  ingredients: string[];
+}
 
 const SearchPage = () => {
   const searchParams = useSearchParams();
@@ -15,30 +23,44 @@ const SearchPage = () => {
   const { theme } = useTheme();
   const { showVegetarian, showVegan } = useFilter();
 
-  console.log('showVegetarian:', showVegetarian);
-  console.log('showVegan:', showVegan);
-
   const breadcrumbs: Breadcrumb[] = [
     { label: 'Home', href: '/' },
     { label: 'Search Results', href: `/search?query=${searchQuery}` },
   ];
 
-  const filteredRecipes = Object.entries(pageList).filter(([key, recipe]) =>
-    !["Breakfast", "Lunch", "Dinner"].includes(key) &&
-    recipe.name.toLowerCase().includes(searchQuery.toLowerCase())
+  const allRecipes = Object.entries(pageList)
+    .filter(([key]) => !["Breakfast", "Lunch", "Dinner"].includes(key))
+    .map(([key, recipe]) => ({ ...recipe, route: key })) as (Recipe & { route: string })[];
+
+  const lowerCaseSearchQuery = searchQuery.toLowerCase();
+
+  const recipesByName = allRecipes.filter(recipe =>
+    recipe.name.toLowerCase().includes(lowerCaseSearchQuery)
   );
 
-  let filteredAndCategorizedRecipes = filteredRecipes;
+  const recipesByIngredient = allRecipes.filter(recipe =>
+    recipe.ingredients.some(ingredient =>
+      ingredient.toLowerCase() === lowerCaseSearchQuery
+    )
+  );
+
+  // Remove duplicates from recipesByIngredient that are already in recipesByName
+  const uniqueRecipesByIngredient = recipesByIngredient.filter(ingredientRecipe =>
+    !recipesByName.some(nameRecipe => nameRecipe.route === ingredientRecipe.route)
+  );
+
+  let filteredRecipesByName = recipesByName;
+  let filteredUniqueRecipesByIngredient = uniqueRecipesByIngredient;
 
   if (showVegetarian) {
-    filteredAndCategorizedRecipes = filteredAndCategorizedRecipes.filter(([, recipe]) => recipe.isVegetarian);
+    filteredRecipesByName = filteredRecipesByName.filter(recipe => recipe.isVegetarian);
+    filteredUniqueRecipesByIngredient = filteredUniqueRecipesByIngredient.filter(recipe => recipe.isVegetarian);
   }
 
   if (showVegan) {
-    filteredAndCategorizedRecipes = filteredAndCategorizedRecipes.filter(([, recipe]) => recipe.isVegan);
+    filteredRecipesByName = filteredRecipesByName.filter(recipe => recipe.isVegan);
+    filteredUniqueRecipesByIngredient = filteredUniqueRecipesByIngredient.filter(recipe => recipe.isVegan);
   }
-
-  console.log('Filtered Recipes Count:', filteredAndCategorizedRecipes.length);
 
   return (
     <section className={`flex flex-col gap-10 ml-0 pl-4`}>
@@ -55,31 +77,48 @@ const SearchPage = () => {
         Search Results for &quot;{searchQuery}&quot;
       </h1>
 
-      {filteredAndCategorizedRecipes.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredAndCategorizedRecipes.map(([key, recipe]) => (
-            <div key={key} className={`rounded-xl shadow-lg overflow-hidden ${theme === 'light' ? 'bg-white' : 'bg-gray-800'}`}>
-              <a href={`/${key}`}>
-                <div className="relative w-full h-48">
-                  <Image
-                    src={recipe.imageUrl}
-                    alt={recipe.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-4">
-                  <h2 className={`text-xl font-semibold mb-2 ${theme === 'light' ? 'text-gray-800' : 'text-white'}`}>
-                    {recipe.name}
-                  </h2>
-                </div>
-              </a>
+      {/* Recipes by Name */}
+      <h2 className={`text-2xl font-semibold mt-8 mb-4 ${theme === 'light' ? 'text-gray-700' : 'text-white'}`}>Recipes by Name</h2>
+      {filteredRecipesByName.length > 0 ? (
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-6">
+          {filteredRecipesByName.map((recipe) => (
+            <div key={recipe.route}>
+              <SubSection
+                name={recipe.name}
+                route={`/${recipe.route}`}
+                classname={`bg-${theme === 'light' ? 'light-1' : 'dark-1'} h-full w-full p-4`}
+                image={recipe.imageUrl}
+              />
             </div>
           ))}
         </div>
-      ) : (
+      ) : (searchQuery !== '') ? (
+        <p className={`${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>No recipes found by name for &quot;{searchQuery}&quot;.</p>
+      ) : null}
+
+      {/* Recipes by Ingredient */}
+      <h2 className={`text-2xl font-semibold mt-8 mb-4 ${theme === 'light' ? 'text-gray-700' : 'text-white'}`}>Recipes by Ingredient</h2>
+      {filteredUniqueRecipesByIngredient.length > 0 ? (
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-6">
+          {filteredUniqueRecipesByIngredient.map((recipe) => (
+            <div key={recipe.route}>
+              <SubSection
+                name={recipe.name}
+                route={`/${recipe.route}`}
+                classname={`bg-${theme === 'light' ? 'light-1' : 'dark-1'} h-full w-full p-4`}
+                image={recipe.imageUrl}
+              />
+            </div>
+          ))}
+        </div>
+      ) : (searchQuery !== '') ? (
+        <p className={`${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>No recipes found by ingredient for &quot;{searchQuery}&quot;.</p>
+      ) : null}
+
+      {(filteredRecipesByName.length === 0 && filteredUniqueRecipesByIngredient.length === 0 && searchQuery !== '') && (
         <p className={`${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>No recipes found for &quot;{searchQuery}&quot;. Adjust your filters or search term.</p>
       )}
+
     </section>
   );
 };

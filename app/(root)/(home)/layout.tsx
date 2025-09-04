@@ -42,7 +42,7 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
       <Navbar theme={theme} setTheme={setTheme} />
       <div className='flex'>
         <Sidebar theme={theme}/>
-        <section className='flex min-h-screen flex-1 flex-col px-6 pb-6 pt-28 max-md:pb-14 sm:px-14'>
+        <section className='flex min-h-screen flex-1 flex-col px-6 pb-6 pt-28 max-md:pb-14 sm:px-14 max-sm:ml-0 max-sm:w-full'>
           <div className="w-full">
             {React.Children.map(children, child => {
               // Pass theme and setTheme props to each child component
