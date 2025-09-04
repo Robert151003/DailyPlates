@@ -6,7 +6,6 @@ import { Breadcrumb } from '@/components/breadcrumb';
 import IngredientsList from '@/components/RecipeComponents/IngredientsList';
 import IntroductoryDescription from '@/components/RecipeComponents/IntroductoryDescription';
 import Method from '@/components/RecipeComponents/Method';
-import Link from 'next/link';
 
 const page = () => {
 
