@@ -23,7 +23,7 @@ const SubSection: React.FC<SubSectionProps> = ({ name, route, classname, image }
             style={{ objectFit: 'cover', borderRadius: '0.5rem' }} // cover ensures consistent sizing
           />
         </div>
-        <span className="text-center">{name}</span>
+        <span className="text-center whitespace-normal">{name}</span>
       </Button>
     </Link>
   );
