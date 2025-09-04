@@ -35,6 +35,9 @@ const Navbar: React.FC<NavbarProps> = ({ theme, setTheme }) => {
 
   return (
     <nav className={`flex-between fixed z-50 w-full ${theme === 'light' ? 'bg-light-1' : 'bg-dark-1'} px-6 py-4 lg:px-10`}>
+      <div className={`flex-between gap-5 ${theme === 'light' ? 'text-dark' : 'text-white'}`}>
+        <MobileNav theme={theme}/>
+      </div>
       <Link href="/" className={`flex items-center gap-1 ${theme === 'light' ? 'text-dark' : 'text-white'}`}>
         <Image src= {`/icons/${theme === 'light' ? 'plate-dark' : 'plate'}.png`} width={45} height={45} alt="logo" className='mx-4 max-sm:size-10' />
         <p className={`text-[26px] font-extrabold ${theme === 'light' ? 'text-dark' : 'text-white'} max-sm:hidden`}>Daily Plates</p>
@@ -42,9 +45,6 @@ const Navbar: React.FC<NavbarProps> = ({ theme, setTheme }) => {
 
       <SearchBar />
 
-      <div className={`flex-between gap-5 ${theme === 'light' ? 'text-dark' : 'text-white'}`}>
-        <MobileNav/>
-      </div>
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild>

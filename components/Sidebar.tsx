@@ -28,7 +28,7 @@ const Sidebar: React.FC<SidebarProps> = ({ theme}) => {
               })}
             >
               <Image
-                src={`${theme === 'light' ? `${link.imgUrl}-dark.png` : `${link.imgUrl}.svg` }`}
+                src={`${theme === 'light' ? `${link.imgUrl}-dark.png` : `${link.imgUrl}.png` }`}
                 alt={link.label}
                 width={24}
                 height={24}
