@@ -14,6 +14,11 @@ export const sidebarLinks=[
         route:'/Dinner',
         imgUrl: '/icons/dinner',
     },
+    {
+        label:'Dessert',
+        route:'/Dessert',
+        imgUrl: '/icons/dessert',
+    },
 ]
 
 export const pageList = {
@@ -52,6 +57,10 @@ export const pageList = {
     "Dinner/PanFriedSeaBass": { name: "Pan Fried Sea Bass with Lemon Garlic Herb Sauce", imageUrl: "/Images/PanFriedSeaBass.jpg", isVegetarian: false, isVegan: false, ingredients: ["Butter", "Olive oil", "Sea bass", "Flour", "Salt", "Black pepper", "Garlic", "White wine", "Chicken stock", "Lemon", "Oregano", "Thyme", "Parsley"], nutrients: ["318 kcal", "18g fat", "8g saturates", "6g carbs", "0g sugars", "0g fibre", "32g protein", "0.8g salt"] },
     "Dinner/PotatoesAuGratin": { name: "Potatoes au Gratin (Dauphinoise)", imageUrl: "/Images/PotatoesAuGratin.jpg", isVegetarian: true, isVegan: false, ingredients: ["Cream", "Garlic", "Butter", "Potatoes", "Salt", "Black pepper", "Gruyère cheese", "Thyme"], nutrients: ["390 kcal", "26g fat", "16g saturates", "28g carbs", "2g sugars", "3g fibre", "11g protein", "0.9g salt"] },
     "Dinner/SinigangNaBaboy": { name: "Sinigang na Baboy", imageUrl: "/Images/SinigangNaBaboy.jpg", isVegetarian: false, isVegan: false, ingredients: ["Pork spare ribs", "Water", "Tomatoes", "Onion", "Fish sauce", "Gabi (taro)", "Radish", "Finger chilies", "Long beans", "Eggplant", "Okra", "Tamarind", "Salt", "Pepper", "Bok choy"], nutrients: ["320 kcal", "20g fat", "6g saturates", "15g carbs", "5g sugars", "4g fibre", "22g protein", "1.5g salt"] },
+    "Dinner/ChickenBrieCranberry": { name: "Chicken with Brie & Cranberry", imageUrl: "/Images/ChickenBrieCranberry.jpg", isVegetarian: false, isVegan: false, ingredients: ["Chicken breasts", "Brie cheese", "Cranberry sauce", "Plain flour", "Egg", "Panko breadcrumbs", "Salt", "Black pepper", "Olive oil spray"], nutrients: ["520 kcal", "20g fat", "9g saturates", "32g carbs", "6g sugars", "2g fibre", "48g protein", "1.4g salt"] },
+    "Dinner/HairyBikersSpanishChicken": { name: "Hairy Bikers Spanish Chicken", imageUrl: "/Images/SpanishChicken.jpg", isVegetarian: false, isVegan: false, ingredients: ["Chicken thighs (about 800g or 1.75 lbs)", "Onion, chopped (approximately 150g or 1 medium onion)", "Garlic cloves, minced", "Bell pepper, sliced (about 150g or 1 medium bell pepper)", "Diced tomatoes (400g or 14 oz)", "Chicken broth (240ml or 1 cup)", "Smoked paprika", "Dried oregano", "Salt and pepper to taste", "Olive oil (about 2 tbsp)"], nutrients: ["380 kcal", "24g fat", "6g saturates", "8g carbs", "4g sugars", "2g fibre", "32g protein", "0.8g salt"] },
+    "Dinner/SausageFetaRedOnionPlait": { name: "Sausage, Feta & Red Onion Plait", imageUrl: "/Images/SausageFetaRedOnionPlait.jpg", isVegetarian: false, isVegan: false, ingredients: ["Oil for frying", "1 large red onion, finely sliced", "1 tbsp caramel syrup (or maple syrup)", "450g Lincolnshire or Cumberland sausages", "200g feta cheese, crumbled", "1 tbsp dried sage", "Ground black pepper", "1 sheet ready-rolled puff pastry", "1 egg, beaten"], nutrients: ["640 kcal", "42g fat", "18g saturates", "35g carbs", "6g sugars", "2g fibre", "28g protein", "1.9g salt"] },
+    "Dinner/MaryBerrysHeartyChickenHotPot": { name: "Mary Berry's Hearty Chicken Hot Pot", imageUrl: "/Images/MaryBerrysHeartyChickenHotPot.jpg", isVegetarian: false, isVegan: false, ingredients: ["Butter", "Onions", "Celery stalks", "Carrots", "Plain flour", "Vegetable broth", "Hot chicken stock", "Tomato purée", "Skinless, boneless chicken thighs", "Chestnut mushrooms", "Fresh thyme", "Bay leaves", "Potatoes", "Salt and freshly ground black pepper"], nutrients: ["520 kcal", "24g fat", "11g saturates", "35g carbs", "7g sugars", "5g fibre", "36g protein", "1.3g salt"] },
 
 }
     
