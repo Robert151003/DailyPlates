@@ -26,6 +26,9 @@ export const pageList = {
     
     "Breakfast": { name: "Breakfast", imageUrl: "/Images/default-recipe.jpg", isVegetarian: false, isVegan: false, ingredients: [] },
     "Breakfast/AmericanPancakes": { name: "American Pancakes", imageUrl: "/Images/AmericanPancakes.jpg", isVegetarian: true, isVegan: false, ingredients: ["flour", "milk", "eggs", "sugar", "baking powder"] },
+    "Breakfast/SourdoughFrenchToast": { name: "Sourdough French Toast", imageUrl: "/Images/SourdoughFrenchToast.jpg", isVegetarian: true, isVegan: false, ingredients: ["sourdough bread", "eggs", "milk", "brown sugar", "vanilla", "cinnamon", "butter"] },
+    "Breakfast/OvernightOats": { name: "Overnight Oats", imageUrl: "/Images/OvernightOats.jpg", isVegetarian: true, isVegan: false, ingredients: ["sourdough bread", "eggs", "milk", "brown sugar", "vanilla", "cinnamon", "butter"] },
+
 
     "Lunch": { name: "Lunch", imageUrl: "/Images/default-recipe.jpg", isVegetarian: false, isVegan: false, ingredients: [] },
     "Lunch/CucumberSalad": { name: "Cucumber Salad", imageUrl: "/Images/CucumberSalad.jpg", isVegetarian: true, isVegan: true, ingredients: ["English cucumbers", "red onion", "white wine vinegar", "honey or agave nectar", "sea salt", "fresh dill", "chives", "black pepper"] },
@@ -63,6 +66,7 @@ export const pageList = {
     "Dinner/MaryBerrysHeartyChickenHotPot": { name: "Mary Berry's Hearty Chicken Hot Pot", imageUrl: "/Images/MaryBerrysHeartyChickenHotPot.jpg", isVegetarian: false, isVegan: false, ingredients: ["Butter", "Onions", "Celery stalks", "Carrots", "Plain flour", "Vegetable broth", "Hot chicken stock", "Tomato purée", "Skinless, boneless chicken thighs", "Chestnut mushrooms", "Fresh thyme", "Bay leaves", "Potatoes", "Salt and freshly ground black pepper"], nutrients: ["520 kcal", "24g fat", "11g saturates", "35g carbs", "7g sugars", "5g fibre", "36g protein", "1.3g salt"] },
     "Dinner/OnePotSpicyChickenLinguine": { name: "One-Pot Spicy Chicken Linguine in Creamy Sauce", imageUrl: "/Images/OnePotSpicyChickenLinguine.jpg", isVegetarian: false, isVegan: false, ingredients: ["Boneless, skinless chicken breasts", "Linguine pasta", "Olive oil", "Cajun seasoning", "Smoked paprika", "Garlic powder", "Garlic", "Heavy cream", "Chicken broth", "Grated Parmesan cheese", "Salt and pepper", "Fresh parsley"], nutrients: ["610 kcal", "25g fat", "11g saturates", "58g carbs", "3g sugars", "3g fibre", "38g protein", "1.6g salt"] },
     "Dinner/TheNewWayToCookChickenBreast": { name: "The New Way to Cook Chicken Breast", imageUrl: "/Images/TheNewWayToCookChickenBreast.jpg", isVegetarian: false, isVegan: false, ingredients: ["Bacon", "Potatoes", "Salt", "Black pepper", "Sweet paprika", "Chicken breast", "Philadelphia cream cheese", "Parsley", "Mozzarella", "Butter", "Flour", "Milk", "Cheddar cheese"], nutrients: ["720 kcal", "52g fat", "28g saturates", "22g carbs", "5g sugars", "2g fibre", "40g protein", "2.2g salt"] },
+    "Dinner/SalmonSushiBake": { name: "Salmon Sushi Bake", imageUrl: "/Images/SalmonSushiBake.jpg", isVegetarian: false, isVegan: false, ingredients: ["sushi rice", "rice vinegar", "sugar", "salt", "imitation crab", "salmon", "cream cheese", "sriracha mayo", "furikake", "seaweed snacks", "sesame seeds", "green onion"] },
 
 }
     
