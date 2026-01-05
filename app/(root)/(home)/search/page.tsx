@@ -44,22 +44,17 @@ const SearchPage = () => {
     )
   ) : [];
 
-  // Remove duplicates from recipesByIngredient that are already in recipesByName
-  const uniqueRecipesByIngredient = recipesByIngredient.filter(ingredientRecipe =>
-    !recipesByName.some(nameRecipe => nameRecipe.route === ingredientRecipe.route)
-  );
-
   let filteredRecipesByName = recipesByName;
-  let filteredUniqueRecipesByIngredient = uniqueRecipesByIngredient;
+  let filteredRecipesByIngredient = recipesByIngredient;
 
   if (showVegetarian) {
     filteredRecipesByName = filteredRecipesByName.filter(recipe => recipe.isVegetarian);
-    filteredUniqueRecipesByIngredient = filteredUniqueRecipesByIngredient.filter(recipe => recipe.isVegetarian);
+    filteredRecipesByIngredient = filteredRecipesByIngredient.filter(recipe => recipe.isVegetarian);
   }
 
   if (showVegan) {
     filteredRecipesByName = filteredRecipesByName.filter(recipe => recipe.isVegan);
-    filteredUniqueRecipesByIngredient = filteredUniqueRecipesByIngredient.filter(recipe => recipe.isVegan);
+    filteredRecipesByIngredient = filteredRecipesByIngredient.filter(recipe => recipe.isVegan);
   }
 
   return (
@@ -98,9 +93,9 @@ const SearchPage = () => {
 
       {/* Recipes by Ingredient */}
       <h2 className={`text-2xl font-semibold mt-8 mb-4 ${theme === 'light' ? 'text-gray-700' : 'text-white'}`}>Recipes by Ingredient</h2>
-      {filteredUniqueRecipesByIngredient.length > 0 ? (
+      {filteredRecipesByIngredient.length > 0 ? (
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-6">
-          {filteredUniqueRecipesByIngredient.map((recipe) => (
+          {filteredRecipesByIngredient.map((recipe) => (
             <div key={recipe.route}>
               <SubSection
                 name={recipe.name}
@@ -115,7 +110,7 @@ const SearchPage = () => {
         <p className={`${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>No recipes found by ingredient for &quot;{searchQuery}&quot;.</p>
       ) : null}
 
-      {(filteredRecipesByName.length === 0 && filteredUniqueRecipesByIngredient.length === 0 && searchQuery !== '') && (
+      {(filteredRecipesByName.length === 0 && filteredRecipesByIngredient.length === 0 && searchQuery !== '') && (
         <p className={`${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>No recipes found for &quot;{searchQuery}&quot;. Adjust your filters or search term.</p>
       )}
 
