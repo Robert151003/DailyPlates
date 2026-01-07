@@ -1,6 +1,6 @@
 @echo off
 REM ==========================================
-REM Deploy script for Windows (CMD)
+REM Bulletproof Deploy Script for Windows
 REM ==========================================
 
 REM Safety check: confirm .git exists
@@ -13,7 +13,14 @@ IF NOT EXIST ".git" (
 REM Set branch name
 SET BRANCH=deploy
 
-REM Check if branch exists
+REM Save the script name
+SET SCRIPT=%~nx0
+
+REM Stage deploy.bat to avoid git checkout errors
+git add "%SCRIPT%"
+git commit -m "Save deploy script" -q 2>nul
+
+REM Check if deploy branch exists
 git show-ref --verify --quiet refs/heads/%BRANCH%
 IF ERRORLEVEL 1 (
     echo Branch %BRANCH% does not exist. Creating...
@@ -25,7 +32,7 @@ IF ERRORLEVEL 1 (
 
 REM Delete everything except whitelist + deploy.bat
 for /f "delims=" %%i in ('dir /b /a') do (
-    if /I not "%%i"==".git" if /I not "%%i"==".gitignore" if /I not "%%i"==".htaccess" if /I not "%%i"=="out" if /I not "%%i"=="deploy.bat" (
+    if /I not "%%i"==".git" if /I not "%%i"==".gitignore" if /I not "%%i"==".htaccess" if /I not "%%i"=="out" if /I not "%%i"=="%SCRIPT%" (
         rmdir /s /q "%%i" 2>nul
         del /q "%%i" 2>nul
     )
@@ -37,9 +44,18 @@ if exist out (
     rmdir /s /q out
 )
 
-REM Add, commit, and push
+REM Add changes
 git add .
-git commit -m "Deploy build output only"
+
+REM Commit only if there are changes
+git diff --cached --quiet
+IF ERRORLEVEL 1 (
+    git commit -m "Deploy build output only"
+) ELSE (
+    echo No changes to commit.
+)
+
+REM Push to remote
 git push -u origin %BRANCH%
 
 echo Deploy branch updated successfully!
