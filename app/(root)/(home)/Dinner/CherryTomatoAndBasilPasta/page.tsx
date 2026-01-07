@@ -28,7 +28,7 @@ const page = () => {
       </div>
 
       <IntroductoryDescription
-        title="Cherry Tomato and Basil Pasta"
+        title="Cherry Tomato and Basil Pasta MK2"
         serves="Serves 4"
         prepTime="2 mins"
         cookTime="7 mins"
