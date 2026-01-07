@@ -23,9 +23,9 @@ IF ERRORLEVEL 1 (
     git checkout %BRANCH%
 )
 
-REM Delete everything except whitelist
+REM Delete everything except whitelist + deploy.bat
 for /f "delims=" %%i in ('dir /b /a') do (
-    if /I not "%%i"==".git" if /I not "%%i"==".gitignore" if /I not "%%i"==".htaccess" if /I not "%%i"=="out" (
+    if /I not "%%i"==".git" if /I not "%%i"==".gitignore" if /I not "%%i"==".htaccess" if /I not "%%i"=="out" if /I not "%%i"=="deploy.bat" (
         rmdir /s /q "%%i" 2>nul
         del /q "%%i" 2>nul
     )
