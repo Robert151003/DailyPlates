@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next build", 
+    "export": "next build",
     "lint": "next lint"
   },
   "dependencies": {
@@ -35,8 +35,8 @@
   "devDependencies": {
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^18.3.27",
+    "@types/react-dom": "^18.3.7",
     "eslint": "^8",
     "eslint-config-next": "14.2.9",
     "postcss": "^8",
