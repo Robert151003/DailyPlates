@@ -30,13 +30,18 @@ IF ERRORLEVEL 1 (
     git checkout %BRANCH%
 )
 
-REM Delete everything except whitelist + deploy.bat
+REM Delete everything except whitelist and all .bat files
 for /f "delims=" %%i in ('dir /b /a') do (
-    if /I not "%%i"==".git" if /I not "%%i"==".gitignore" if /I not "%%i"==".htaccess" if /I not "%%i"=="out" if /I not "%%i"=="%SCRIPT%" (
-        rmdir /s /q "%%i" 2>nul
-        del /q "%%i" 2>nul
+    if /I not "%%i"==".git" if /I not "%%i"==".gitignore" if /I not "%%i"==".htaccess" if /I not "%%i"=="out" (
+        REM Skip .bat files
+        echo %%i | findstr /i "\.bat$" >nul
+        if ERRORLEVEL 1 (
+            rmdir /s /q "%%i" 2>nul
+            del /q "%%i" 2>nul
+        )
     )
 )
+
 
 REM Move contents of out/ to repo root
 if exist out (
