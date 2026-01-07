@@ -25,7 +25,7 @@ IF ERRORLEVEL 1 (
 
 REM Delete everything except whitelist + deploy.bat
 for /f "delims=" %%i in ('dir /b /a') do (
-    if /I not "%%i"==".git" if /I not "%%i"==".gitignore" if /I not "%%i"==".htaccess" if /I not "%%i"=="out" if /I not "%%i"=="deploy.bat" (
+    if /I not "%%i"==".git" if /I not "%%i"==".gitignore" if /I not "%%i"==".htaccess" if /I not "%%i"=="out" if /I not "%%i"=="deploy" (
         rmdir /s /q "%%i" 2>nul
         del /q "%%i" 2>nul
     )
