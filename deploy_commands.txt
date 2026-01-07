@@ -1,0 +1,24 @@
+git checkout -b deploy
+git merge main
+
+
+
+Get-ChildItem -Force | Where-Object {
+    $_.Name -notin @('.git', '.gitignore', '.htaccess', 'out', 'deploy_commands')
+} | Remove-Item -Recurse -Force
+
+
+Copy-Item -Recurse -Force out\* .
+Remove-Item -Recurse -Force out
+
+git pull origin deploy
+
+
+git add .
+git commit -m "Deploy build output only"
+git push -u origin deploy
+
+git branch -d deploy
+
+
+npm install --save-dev @types/react @types/react-dom
