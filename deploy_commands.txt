@@ -10,4 +10,8 @@ Remove-Item -Recurse -Force out
 git add .
 git commit -m "Deploy build output only"
 
+git checkout main
+>>
+>> git branch -D deploy
+
 npm install --save-dev @types/react @types/react-dom
