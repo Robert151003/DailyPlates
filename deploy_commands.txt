@@ -18,7 +18,7 @@ git add .
 git commit -m "Deploy build output only"
 git push -u origin deploy
 
-git branch -d deploy
+git branch -D deploy
 
 
 npm install --save-dev @types/react @types/react-dom
