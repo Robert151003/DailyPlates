@@ -32,3 +32,5 @@ jobs:
           password: ${{ secrets.HOSTINGER_PASSWORD }}
           local-dir: out/
           server-dir: ${{ secrets.HOSTINGER_PATH }}
+          port: ${{ secrets.HOSTINGER_PORT }}
+          protocol: ftp
