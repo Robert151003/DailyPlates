@@ -10,8 +10,8 @@ import Method from '@/components/RecipeComponents/Method';
 const page = () => {
   const breadcrumbs: Breadcrumb[] = [
     { label: 'Home', href: '/' },
-    { label: 'Main', href: '/Main' },
-    { label: 'The New Way to Cook Chicken Breast', href: '/Main/TheNewWayToCookChickenBreast' },
+    { label: 'Dinner', href: '/Dinner' },
+    { label: 'The New Way to Cook Chicken Breast', href: '/Dinner/TheNewWayToCookChickenBreast' },
   ];
 
   return (
