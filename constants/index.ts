@@ -76,6 +76,6 @@ export const pageList = {
     "Dinner/HighProteinBeefBrisketBatchCook": { name: "High Protein Beef Brisket Batch Cook", imageUrl: "/Images/HighProteinBeefBrisketBatchCook.jpg", isVegetarian: false, isVegan: false, ingredients: ["Beef brisket", "Onion", "Garlic", "Crushed ginger", "Beef stock or bone broth", "Dark chocolate", "Honey", "Soy sauce", "Tomato paste", "Balsamic vinegar", "Black pepper"], nutrients: ["~1440 kcal (whole recipe)", "~204g protein (whole recipe)"] },
 
     "Dessert/BakedPearswithBlueCheeseHoneyandWalnuts": { name: "Baked Pears with Blue Cheese, Honey & Walnuts", imageUrl: "/Images/BakedPearswithBlueCheeseHoneyandWalnuts.jpg", isVegetarian: true, isVegan: false, ingredients: ["Bosc or Bartlett pears", "Butter", "Honey", "Mixed berries (blueberries, raspberries, or cranberries)", "Walnuts", "Blue cheese or gorgonzola", "Cinnamon", "Fresh thyme leaves"], nutrients: ["235 kcal", "14g fat", "6g saturates", "26g carbs", "21g sugars", "3g fibre", "4g protein", "0.3g salt"] },
-
+    "Dessert/VanillaCupcakesStaysMoist4Days": { name: "Vanilla Cupcakes – Stays Moist 4 Days", imageUrl: "/Images/VanillaCupcakesStaysMoist4Days.jpg", isVegetarian: true, isVegan: false, ingredients: ["Plain / all-purpose flour", "Baking powder", "Salt", "Eggs", "Caster sugar", "Unsalted butter", "Full-fat milk", "Vanilla extract", "Vegetable or canola oil"], nutrients: ["Approx. 210 kcal per cupcake", "3g protein", "28g carbs", "9g fat"] },
 }
     
