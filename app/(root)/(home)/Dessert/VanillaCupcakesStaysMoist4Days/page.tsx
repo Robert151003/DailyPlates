@@ -26,7 +26,7 @@ const page = () => {
       </div>
 
       <IntroductoryDescription
-        title="Vanilla Cupcakes – Stays Moist 4 Days"
+        title="Vanilla Cupcakes"
         serves="12"
         prepTime="20 mins"
         cookTime="22 mins"
