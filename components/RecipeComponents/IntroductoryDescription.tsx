@@ -91,21 +91,25 @@ const IntroductoryDescription: React.FC<IntroductoryDescriptionProps> = ({
         </p>
 
         {/* Author section */}
-        {authorName && authorUrl && (
+        {authorName && (
           <p
             className={`text-sm ${
               theme === 'light' ? 'text-gray-600' : 'text-gray-300'
             }`}
           >
             Recipe by:{' '}
-            <a
-              href={authorUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 underline"
-            >
-              {authorName}
-            </a>
+            {authorUrl ? (
+              <a
+                href={authorUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                {authorName}
+              </a>
+            ) : (
+              <span>{authorName}</span>
+            )}
           </p>
         )}
       </div>
